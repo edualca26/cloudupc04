@@ -10,20 +10,13 @@ resource "aws_s3_bucket" "my_bucket" {
     id     = "mover-a-glacier-y-borrar"
     status = "Enabled"
 
-    filter {
-      tag {
-        key   = "usuario"
-        value = "juan"
-      }
-    }
-
     transition {
-      days          = 90
+      days          = 1
       storage_class = "GLACIER"
     }
 
     expiration {
-      days = 365
+      days = 2
     }
   }
 
